@@ -5,7 +5,7 @@ import "../styles/signup.css"
 import { Link } from 'react-router-dom'
 import {AiOutlineEyeInvisible,AiOutlineEye} from "react-icons/ai"
 
-function Signup() {
+function Login2() {
   const [email, setEmail] = useState("")
   const [emailError, setEmailError] = useState("")
   const [password, setPassword] = useState("")
@@ -18,7 +18,7 @@ function Signup() {
 
 const handleSubmit = (e) => {
 e.preventDefault()
-if(!email || !password || !fullName){
+if(!email || !password){
   handleError()
   return
 }else{
@@ -26,8 +26,8 @@ if(!email || !password || !fullName){
   setPassword("")
   setFullNameError("")
   setEmail("")
-  setFullName("")
   setPassword("")
+  console.log("code rab 33")
 }
 console.log(fullName, password, email)
 }
@@ -74,40 +74,44 @@ const formData = formInfo.map( (i,j) =>
         }
       }
     
-
-   return <div key={j}>
-    {
-      i.type === "password" ? <div className='input'>
-        <input type={type} value={value}  placeholder={i.placeholder} onChange={(e) => {
-        setFunc(e)
-        console.log(value)
-      }} />
-    <div
-    className='d-flex align-center justify-content-center pe-2'
-    onClick={() => {
-      if(type === "text"){
-        setType("password")
-      }else{
-        setType("text")
+      if(i.error !== "fullNameError"){
+        return <div key={j}>
+        {
+          i.type === "password" ? <div className='input'>
+            <input type={type} value={value}  placeholder={i.placeholder} onChange={(e) => {
+            setFunc(e)
+            console.log(value)
+          }} />
+        <div
+        className='d-flex align-center justify-content-center pe-2'
+        onClick={() => {
+          if(type === "text"){
+            setType("password")
+          }else{
+            setType("text")
+          }
+          
+        }}>
+        {
+            type === "password" ? <AiOutlineEyeInvisible /> : <AiOutlineEye />
+        }
+        </div>
+          </div> : <div className='input'>
+          <input type={i.type} value={value}  placeholder={i.placeholder} onChange={(e) => {
+            setFunc(e)
+            console.log(value)
+          }} />
+          </div>
+         
+          }
+        <span>{error ? error : ""}</span>
+        </div>
       }
-      
-    }}>
-    {
-        type === "password" ? <AiOutlineEyeInvisible /> : <AiOutlineEye />
-    }
-    </div>
-      </div> : <div className='input'>
-      <input type={i.type} value={value}  placeholder={i.placeholder} onChange={(e) => {
-        setFunc(e)
-        console.log(value)
-      }} />
-      </div>
-     
-      }
-    <span>{error ? error : ""}</span>
-    </div>
+  
 }
 )
+
+
   return (
     <div className="wrapper d-flex align-items-center justify-content-center flex-column gap-3">
 <div className="img">
@@ -122,15 +126,14 @@ Please sign-up to your start your experience.
 <form onSubmit={handleSubmit}>
 {formData}
 <button>
-  Register
+Login
 </button>
-
 </form>
 <div className="others">
-  <span>Allready have an Account? <Link to="/login">Login</Link></span>
+  <span>Dont't have an Account? <Link to="/signup">Register</Link></span>
 </div>
     </div>
   )
 }
 
-export default Signup
+export default Login2
