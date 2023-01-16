@@ -2,11 +2,14 @@ import React, {useState} from 'react'
 import media from "../public/media.svg"
 import formInfo from '../utils/form'
 import "../styles/signup.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {AiOutlineEyeInvisible,AiOutlineEye} from "react-icons/ai"
 import { SignInUser } from '../utils/userFunc'
 
+import {useDispatch} from "react-redux"
+
 function Login2() {
+  const dispatch = useDispatch()
   const [email, setEmail] = useState("")
   const [emailError, setEmailError] = useState("")
   const [password, setPassword] = useState("")
@@ -15,9 +18,10 @@ function Login2() {
   const [fullNameError, setFullNameError] = useState("")
   const [type, setType] = useState("text")
 
-  
-
-
+const navigate = useNavigate()
+const changeUrl  = () => {
+  navigate('/')
+}
 const handleSubmit = (e) => {
 e.preventDefault()
 if(!email || !password){
@@ -29,10 +33,9 @@ if(!email || !password){
   setFullNameError("")
   setEmail("")
   setPassword("")
-  SignInUser(email, password)
-  
+  SignInUser(email, password, changeUrl,dispatch)
 }
-console.log(fullName, password, email)
+
 }
 
 const handleError = () => {
@@ -83,7 +86,6 @@ const formData = formInfo.map( (i,j) =>
           i.type === "password" ? <div className='input'>
             <input type={type} value={value}  placeholder={i.placeholder} onChange={(e) => {
             setFunc(e)
-            console.log(value)
           }} />
         <div
         className='d-flex align-center justify-content-center pe-2'
@@ -102,7 +104,6 @@ const formData = formInfo.map( (i,j) =>
           </div> : <div className='input'>
           <input type={i.type} value={value}  placeholder={i.placeholder} onChange={(e) => {
             setFunc(e)
-            console.log(value)
           }} />
           </div>
          

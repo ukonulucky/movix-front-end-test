@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import "../styles/home.css"
 import tv from "../public/tv.png"
 import icon from "../public/Icon.png"
@@ -6,10 +6,48 @@ import {CiSearch} from "react-icons/ci"
 import mdn from "../public/mdn.png"
 import apple from "../public/apple.png"
 import {BsPlayFill} from "react-icons/bs"
+import {useDispatch, useSelector} from "react-redux"
+import { getData } from '../firebase/firebase'
+import { useNavigate } from 'react-router-dom'
+import { loginUser } from '../redux/actions'
+
 function Home() {
+const [name, setName] = useState("")
+const [reload, setReload] = useState(false)
+const navigate = useNavigate()
+const dispatch = useDispatch()
+const state = useSelector(state => state)
+
+const handleData = async () => {
+try {
+  const data = await getData()
+  const userEmail = JSON.parse(localStorage.getItem("userEmail"))
+  if(!userEmail) {
+    navigate("/login")
+  }
+  if(data.length > 0){
+  const loggedInUser =   data.filter(i => i.email === userEmail)
+  if(!loggedInUser) {
+    navigate("/login")
+  }
+  dispatch(loginUser(loggedInUser[0].fullName))
+ setReload(!reload)
+ 
+   }
+} catch (error) {
+  console.log(error.message)
+}
+}
+
+  useEffect(() =>{
+  handleData()
+  }, [])
+  useEffect(() =>{
+   setName(state.userLogin)
+    },[reload])
   return (
     <div className="wrapper">
-      <div className="poster">
+     <div className="poster">
       <div className="d-flex py-3  justify-content-between align-items-center "
       style={{
         marginLeft:"80px",
@@ -34,7 +72,7 @@ function Home() {
         </div>
 
         <div className="d-flex align-items-center gap-2 text-white user">
-         <span>Hi, your name</span>
+         <span>Hi, {name ? name : ""}</span>
          <span>
             <img src={icon} alt="" />
           </span>

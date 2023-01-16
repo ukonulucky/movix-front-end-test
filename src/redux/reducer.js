@@ -10,8 +10,9 @@ const initialState = {
 export const stateReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOGINUSER:
+            console.log("code ran in reducer");
             return {
-           ...state, user : action.payload
+           ...state, userLogin : action.payload
        }   
            break;
        case MOVIES:
