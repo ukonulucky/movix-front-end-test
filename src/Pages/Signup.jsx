@@ -2,8 +2,10 @@ import React, {useState} from 'react'
 import media from "../public/media.svg"
 import formInfo from '../utils/form'
 import "../styles/signup.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {AiOutlineEyeInvisible,AiOutlineEye} from "react-icons/ai"
+import {registerUser} from "../utils/userFunc"
+import { addData, getData } from '../firebase/firebase'
 
 function Signup() {
   const [email, setEmail] = useState("")
@@ -14,8 +16,12 @@ function Signup() {
   const [fullNameError, setFullNameError] = useState("")
   const [type, setType] = useState("text")
   
-
-
+  
+const navigate = useNavigate()
+const changeUrl  = (x) => {
+  navigate(`/${x}`)
+}
+// getData()
 const handleSubmit = (e) => {
 e.preventDefault()
 if(!email || !password || !fullName){
@@ -28,6 +34,8 @@ if(!email || !password || !fullName){
   setEmail("")
   setFullName("")
   setPassword("")
+ registerUser(email, password, fullName, changeUrl)
+ 
 }
 console.log(fullName, password, email)
 }

@@ -6,11 +6,15 @@ import Home from "./Pages/Home";
 import '404-page/dist/index.css'
 import {LostPage} from '404-page'
 import Login2 from "./Pages/Login2";
+import {Provider} from "react-redux"
+import {store} from "./redux/store"
+
 
 
 function App() {
   return (
     <div className="App">
+      <Provider store={store}>
     <Router>
     
        <Routes>
@@ -21,6 +25,7 @@ function App() {
        </Routes>
       
     </Router>
+    </Provider>
     </div>
   );
 }

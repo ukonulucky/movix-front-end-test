@@ -4,6 +4,7 @@ import formInfo from '../utils/form'
 import "../styles/signup.css"
 import { Link } from 'react-router-dom'
 import {AiOutlineEyeInvisible,AiOutlineEye} from "react-icons/ai"
+import { SignInUser } from '../utils/userFunc'
 
 function Login2() {
   const [email, setEmail] = useState("")
@@ -13,6 +14,7 @@ function Login2() {
   const [fullName, setFullName] = useState("")
   const [fullNameError, setFullNameError] = useState("")
   const [type, setType] = useState("text")
+
   
 
 
@@ -27,7 +29,8 @@ if(!email || !password){
   setFullNameError("")
   setEmail("")
   setPassword("")
-  console.log("code rab 33")
+  SignInUser(email, password)
+  
 }
 console.log(fullName, password, email)
 }
@@ -120,7 +123,7 @@ const formData = formInfo.map( (i,j) =>
 <div className="header">
   <h2>Hi, Welcome</h2>
   <p>
-Please sign-up to your start your experience.
+Please sign-up to start your experience.
   </p>
 </div>
 <form onSubmit={handleSubmit}>

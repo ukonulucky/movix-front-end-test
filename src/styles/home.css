@@ -1,1 +1,118 @@
-/*# sourceMappingURL=home.css.map */
+.wrapper .poster {
+  width: 100%;
+  height: 90vh;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../public/Poster.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.wrapper .poster .search {
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: transparent;
+  padding: 5px;
+}
+.wrapper .poster .search input {
+  border: 0;
+  background-color: transparent;
+  outline: none;
+  color: white;
+  width: 300px;
+}
+.wrapper .poster .search input::-moz-placeholder {
+  color: white;
+}
+.wrapper .poster .search input:-ms-input-placeholder {
+  color: white;
+}
+.wrapper .poster .search input::placeholder {
+  color: white;
+}
+.wrapper .poster .user span:nth-child(2) {
+  width: 36px;
+  height: 36px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #BE123C;
+  border-radius: 50px;
+}
+.wrapper .poster .user span:nth-child(2) img {
+  width: 16.8px;
+  height: 9.6px;
+}
+.wrapper .poster .tv span:nth-child(1) img {
+  width: 50px;
+  height: 50px;
+}
+.wrapper .poster .tv span:nth-child(2) {
+  width: 69px;
+  height: 24px;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+}
+.wrapper .poster .content {
+  margin-left: 80px;
+  margin-top: 80px;
+}
+.wrapper .poster .content .header h2 {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 45px;
+  color: #FFFFFF;
+  text-transform: capitalize;
+  text-align: left;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 10px 0;
+}
+.wrapper .poster .content .con {
+  display: flex;
+  align-items: center;
+  align-items: center;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  margin-top: 40px;
+}
+.wrapper .poster .content .con .item {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.wrapper .poster .content .con .item span {
+  color: white;
+}
+.wrapper .poster .content .text {
+  margin-top: 20px;
+  width: 302px;
+}
+.wrapper .poster .content .text span {
+  height: 72px;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #FFFFFF;
+}
+.wrapper .poster .content .play {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 16px;
+  gap: 8px;
+  height: 36px;
+  background: #BE123C;
+  border-radius: 6px;
+}
+.wrapper .poster .content .play span {
+  color: white;
+}/*# sourceMappingURL=home.css.map */

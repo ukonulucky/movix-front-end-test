@@ -3,6 +3,7 @@ import media from "../public/media.svg"
 import formInfo from '../utils/form'
 import "../styles/login.css"
 import { Link } from 'react-router-dom'
+
 function Login() {
   const [email, setEmail] = useState("")
   const [emailError, setEmailError] = useState("")

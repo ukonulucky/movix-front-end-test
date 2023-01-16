@@ -1,0 +1,123 @@
+.wrapper{
+    .poster{
+        width: 100%;
+        height: 90vh;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../public/Poster.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        .search{
+            border-radius: 5px;
+            border: 1px solid white;
+            background-color: transparent;
+            padding: 5px;
+            input{
+                border: 0;
+                background-color: transparent;
+                outline: none;
+                color: white;
+                width:300px ;
+               &::placeholder{
+                color: white;
+               }
+
+            }
+        }
+        .user{
+            span:nth-child(2){
+                width: 36px;
+                height: 36px;
+                padding: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #BE123C;
+                border-radius: 50px;
+                img{
+                 width: 16.8px ;  
+                 height: 9.6px;
+                }
+            }
+        }
+        .tv{
+            span:nth-child(1){
+               img{
+                width: 50px;
+                height: 50px;
+               }
+            }
+            span:nth-child(2){
+                width: 69px;
+            height: 24px;
+            font-family: 'DM Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 24px;  
+            }
+        }
+        .content{
+            margin-left: 80px;
+            margin-top: 80px;
+            .header{
+                h2{
+                    font-family: 'DM Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 45px;
+                    color: #FFFFFF;
+                    text-transform: capitalize;
+                    text-align: left;
+                    width: max-content;
+                    padding: 10px 0;
+
+                }
+               
+            }
+            .con{
+                display: flex;
+                align-items: center;
+                align-items: center;
+                column-gap: 30px;
+                margin-top: 40px;
+               .item{
+                display: flex;
+                align-items: center;
+                column-gap: 10px;
+                span{
+                    color: white;
+                }
+               }
+                
+            }
+            .text{
+                margin-top: 20px;
+                width: 302px;
+                span{
+                height: 72px;
+                font-family: 'DM Sans';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 18px;
+                color: #FFFFFF;
+                }
+               
+            }
+            .play{
+                margin-top: 20px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 6px 16px;
+                gap: 8px;
+                height: 36px;
+                background: #BE123C;
+                border-radius: 6px;
+                span{
+                    color: white;
+                }
+            }
+        }
+    }
+}
