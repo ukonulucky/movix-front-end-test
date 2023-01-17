@@ -17,14 +17,16 @@ const [reload, setReload] = useState(false)
 const navigate = useNavigate()
 const dispatch = useDispatch()
 const state = useSelector(state => state)
-
+// my movix key ===> e824aeb7b56c29ad4434892f21404e2f
 const handleData = async () => {
 try {
-  const data = await getData()
   const userEmail = JSON.parse(localStorage.getItem("userEmail"))
   if(!userEmail) {
     navigate("/login")
+    return
   }
+  const data = await getData()
+  
   if(data.length > 0){
   const loggedInUser =   data.filter(i => i.email === userEmail)
   if(!loggedInUser) {
